@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<style>
+
+    body{
+        background-color: rgb(66, 32, 97);
+        margin: 0;
+        padding: 0;
+
+    }
+    .centring{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 100vh;
+        gap: 20px;
+        
+    }
+    .container{
+        display: grid;
+        grid-template-columns: 100px 100px 100px 100px ;
+        grid-template-rows: 100px 100px 100px 100px ;
+        gap: 20px;
+        
+    }
+    .button{
+        background-color: rgb(50, 156, 121);
+        display: flex;
+        border-radius: 50%;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        font-size:larger;
+        
+    }
+    
+    .screen{
+        padding: 10px;
+        width: 440px;
+        height: 60px;
+        border-radius: 15px;
+        text-align: right;
+        font-size: 50px;
+        background-color: blanchedalmond;
+        
+    }
+    .checker{
+        background-color: rgb(36, 36, 36);
+        padding: 30px;
+        border-radius: 20px;
+    }
+    .button:hover{
+        background-color: rgb(160, 57, 57);
+        transform: translateY(3px);
+        
+    }
+    
+</style>
+<body>
+<div class="centring">
+    <div class="checker">
+    <div class="display" style="margin-bottom: 20px;">
+        <div class="screen"></div>
+    </div>
+    <div class="container">
+        
+        <div class="button btn1">1</div>
+        <div class="button btn2">2</div>
+        <div class="button btn3">3</div>
+        <div class="button btnm">*</div>
+        <div class="button btn4">4</div>
+        <div class="button btn5">5</div>
+        <div class="button btn6">6</div>
+        <div class="button btna">+</div>
+        <div class="button btn7">7</div>
+        <div class="button btn8">8</div>
+        <div class="button btn9">9</div>
+        <div class="button btnmi">-</div>
+        <div class="button btn0">0</div>
+        <div class="button btnd">.</div>
+        <div class="button btne">=</div>
+        <div class="button btnde">/</div>
+    </div>
+</div>
+</div>
+
+<script>
+
+        alert("use ctrl + r to erase");
+        var a = document.querySelectorAll('.button');
+        console.log(a);
+        /*for(var i = 0 ; i<16;i++){
+            var lastW = a[i].classList;
+            console.log(lastW[1]);
+        }*/
+
+
+        for(var num = 0 ; num<=9 ; num++){
+            
+        
+            add(num);
+
+        }
+        
+        function add(value){
+            document.querySelector('.btn' + value).addEventListener('click' ,() => {
+            var r = document.querySelector('.screen');
+            r.textContent += value;
+            console.log(r.textContent);
+        });
+        }
+        document.querySelector('.btnm').addEventListener('click' ,() => {
+            var r = document.querySelector('.screen');
+            r.textContent += '*';
+            console.log(r.textContent);
+        });
+        document.querySelector('.btna').addEventListener('click' ,() => {
+            var r = document.querySelector('.screen');
+            r.textContent += '+';
+            console.log(r.textContent);
+        });
+        document.querySelector('.btnmi').addEventListener('click' ,() => {
+            var r = document.querySelector('.screen');
+            r.textContent += '-';
+            console.log(r.textContent);
+        });
+        document.querySelector('.btnd').addEventListener('click' ,() => {
+            var r = document.querySelector('.screen');
+            r.textContent += '.';
+            console.log(r.textContent);
+        });
+        document.querySelector('.btne').addEventListener('click' ,() => {
+            var r = document.querySelector('.screen');
+            console.log(eval(r.textContent));
+            r.textContent = eval(r.textContent);
+        });
+        document.querySelector('.btnde').addEventListener('click' ,() => {
+            var r = document.querySelector('.screen');
+            r.textContent += '/';
+            console.log(r.textContent);
+        });
+
+</script>
+
+</body>
+</html>
